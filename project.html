@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Checklist 3: the viewport meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sara Yarborough, Computer Information Systems student at Texas State University.">
+  <title>Projects | Sara Yarborough</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="container" aria-label="Main">
+      <a class="brand" href="index.html">Sara Yarborough</a>
+      <div class="nav-links"><a href="index.html">Home</a><a href="project.html" aria-current="page">Projects</a><a href="contact.html">Contact</a></div>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <h1>Projects</h1>
+    <p>What I have built so far, and what comes next.</p>
+
+    <h2>Featured projects</h2>
+    <!-- Checklist 4: grid. One column on a phone, three on wider screens. -->
+    <section class="gallery">
+      <article class="card project-card">
+        <h3>Credit Score Page</h3>
+        <img class="project-image" src="images/Credit%20Score%20Image.png" alt="Credit Score Checker showing that a score of 660 is Fair, with score ranges and score factors listed below" width="2398" height="1428" loading="lazy">
+        <p>A credit score checker. Enter a score to see which range it falls in, with a reference list of the factors that make up a score. Also includes a calculator and a dark mode toggle.</p>
+        <a class="project-link" href="https://github.com/sarayarborough/Credit-Score-Checker" target="_blank" rel="noopener" aria-label="View the Credit Score Page on GitHub">View on GitHub</a>
+      </article>
+      <article class="card project-card">
+        <h3>Plane Wing ERP</h3>
+        <img class="project-image" src="images/Plane%20ERP%20Image.png" alt="Precision Airframe Corp ERP dashboard showing active jobs, cash, accounts payable, and upcoming alerts" width="2170" height="1442" loading="lazy">
+        <p>An enterprise resource planning system for managing plane wing inventory, with a dashboard for jobs, quality reports, cash, and payables. Built using prompt engineering methods.</p>
+        <a class="project-link" href="https://github.com/sarayarborough/Plane-Wing-ERP" target="_blank" rel="noopener" aria-label="View the Plane Wing ERP on GitHub">View on GitHub</a>
+      </article>
+      <article class="card project-card">
+        <h3>Weather Interface</h3>
+        <img class="project-image" src="images/Weather%20Checker%20Image.png" alt="Hoodie Check page showing 69.1 F and the message: No, a T-shirt is fine." width="2392" height="1414" loading="lazy">
+        <p>Hoodie Check pulls the current temperature for San Marcos from the Open-Meteo API and tells you whether you need a hoodie.</p>
+        <a class="project-link" href="https://github.com/sarayarborough/Weather-Interface" target="_blank" rel="noopener" aria-label="View the Weather Interface on GitHub">View on GitHub</a>
+      </article>
+    </section>
+
+    <h2>Coursework</h2>
+    <section class="gallery">
+      <article class="card project-card">
+        <h3>Professional Page</h3>
+        <p>A webpage designed for potential employers to learn more about me.</p>
+      </article>
+      <article class="card project-card">
+        <h3>Style Sheets</h3>
+        <p>Several style sheets built to improve the look of my projects.</p>
+      </article>
+      <article class="card project-card">
+        <h3>JavaScript</h3>
+        <p>Interactive web pages built with JavaScript.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>&copy; 2026 Sara Yarborough</p>
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top" hidden>↑ Back to Top</button>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+/* styles.css: one stylesheet for all three pages. Mobile-first: the rules
+   outside the @media blocks are the phone layout; the blocks at the bottom add columns.
+   Flexbox lines items up in one direction (nav, three cards); Grid does rows and columns (projects). */
+
+* { box-sizing: border-box; }
+
+:root {
+  --brand: #800000;
+  --brand-dark: #5c0000;
+  --light: #f5f1ee;
+  --text: #222222;
+  --muted: #5a5350;
+  --border: #d8d2ce;
+  --radius: 0.75rem;
+  --space: 1rem;
+}
+
+html { scroll-padding-top: 1rem; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+}
+main { flex: 1; }
+
+/* Type scale */
+h1, h2, h3 { color: var(--brand); line-height: 1.2; text-wrap: balance; }
+h1 { font-size: clamp(2rem, 5vw, 2.75rem); margin: 0 0 0.5rem; }
+h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; }
+h3 { font-size: 1.2rem; margin: 0 0 0.5rem; }
+p { max-width: 65ch; }
+a { color: var(--brand); }
+img, iframe { max-width: 100%; }
+#intro { font-size: 1.25rem; margin-top: 0; }
+
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+.site-header :focus-visible { outline-color: #fff; }
+
+.skip-link { position: absolute; left: -999px; background: #fff; padding: 0.5rem 1rem; z-index: 20; }
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+/* Checklist 6: centered container */
+.container { max-width: 960px; margin: 0 auto; padding: var(--space); }
+
+/* Checklist 1: nav bar (Flexbox) */
+.site-header { background: var(--brand); }
+nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space); }
+.nav-links { display: flex; gap: 1.25rem; }
+nav a { color: #fff; text-decoration: none; padding: 0.25rem 0; border-bottom: 2px solid transparent; }
+nav a:hover, nav a[aria-current="page"] { border-bottom-color: #fff; }
+.brand { font-weight: 700; }
+
+/* Home hero */
+.hero { display: grid; gap: 1.5rem; align-items: center; padding-top: 1rem; }
+.headshot {
+  width: 180px; height: 180px;
+  object-fit: cover; object-position: center 25%;
+  border-radius: 50%; border: 4px solid var(--brand);
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.25rem 0 0; }
+.button {
+  display: inline-block; padding: 0.6rem 1.1rem; border-radius: 0.5rem;
+  background: var(--brand); color: #fff; border: 2px solid var(--brand);
+  font-weight: 600; text-decoration: none;
+}
+.button:hover { background: var(--brand-dark); border-color: var(--brand-dark); }
+.button-outline { background: transparent; color: var(--brand); }
+.button-outline:hover { background: var(--light); color: var(--brand-dark); }
+
+/* Cards */
+.card { background: var(--light); border: 1px solid var(--border); border-top: 4px solid var(--brand); border-radius: var(--radius); padding: 1.25rem; }
+.card > :last-child { margin-bottom: 0; }
+.card h2 { margin-top: 0; }
+
+/* Passions list (built by script.js) */
+#list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+#list li { background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 0.25rem 0.9rem; }
+#count { color: var(--muted); margin: 1rem 0 0; }
+
+/* Skills table */
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; max-width: 32rem; }
+th, td { padding: 0.6rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+thead th { background: var(--brand); color: #fff; }
+tbody tr:nth-child(even) { background: var(--light); }
+
+/* Projects */
+.project-card { display: flex; flex-direction: column; min-width: 0; text-align: center; }
+.project-card p { margin: 0 0 1.25rem; }
+.project-image {
+  display: block; width: 100%; height: auto;
+  max-height: 13rem; object-fit: contain; object-position: top center;
+  margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 0.5rem; background: #fff;
+}
+.project-link { align-self: center; margin-top: auto; font-weight: 700; text-underline-offset: 0.2em; }
+
+/* Contact */
+.contact-form { display: flex; justify-content: center; }
+.contact-form iframe { width: 100%; max-width: 640px; height: 960px; border: 0; }
+
+footer { margin-top: 3rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
+footer p { margin: 0; }
+
+.back-to-top {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 10;
+  border: 0; border-radius: 0.5rem; padding: 0.75rem 1rem;
+  background: var(--brand); color: #fff; font: inherit; cursor: pointer;
+}
+.back-to-top:hover { background: var(--brand-dark); }
+.back-to-top[hidden] { display: none; }
+
+/* Checklist 4: grid, one column on phones */
+.cards, .gallery { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+
+/* Checklist 5: media queries add columns on wider screens */
+@media (min-width: 600px) {
+  .hero { grid-template-columns: auto 1fr; gap: 2rem; }
+  .headshot { width: 220px; height: 220px; }
+  .cards { display: flex; gap: 1.5rem; }   /* Checklist 2: three cards in a row (Flexbox) */
+  .cards > .card { flex: 1 1 0; }
+}
+@media (min-width: 800px) {
+  .gallery { grid-template-columns: repeat(3, 1fr); }   /* Checklist 4: three columns */
+}
+.passions { margin-top: 2rem; }
